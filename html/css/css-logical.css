@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0f0f0f;
+  background-color: #ecedef;
+  block-size: 100vb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* direction: rtl; */
+  writing-mode: vertical-rl;
+}
+
+.users {
+  min-inline-size: 400px;
+}
+
+.user {
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* max-width: 400px; */
+  max-inline-size: 400px;
+
+  /* padding: 1rem 1.75rem; */
+  padding-block: 1rem;
+  padding-inline: 1.75rem;
+
+  /* margin: 0.75rem auto; */
+  margin-block: 0.75rem;
+  margin-inline: auto;
+
+  /* border-left: 4px solid; */
+  border-inline-start: 4px solid;
+}
+
+.user-img {
+  border-radius: 100%;
+  overflow: hidden;
+
+  /* width: 70px; */
+  inline-size: 70px;
+
+  /* height: 70px; */
+  block-size: 70px;
+
+  /* margin-right: 1rem; */
+  margin-inline-end: 1rem;
+}
+
+.user-meta {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.user-designation {
+  font-size: 0.875rem;
+  color: #6f707e;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+
+  position: absolute;
+  /* top: 0; */
+  inset-block-start: 0;
+
+  /* right: 0; */
+  inset-inline-end: 0;
+
+  /* padding: 4px 0; */
+  padding-block: 4px;
+
+  /* min-width: 75px; */
+  min-inline-size: 75px;
+}
+
+.label-marketing {
+  border-color: coral;
+}
+
+.label-marketing .label {
+  background-color: coral;
+}
+
+.label-sales {
+  border-color: darkseagreen;
+}
+
+.label-sales .label {
+  background-color: darkseagreen;
+}
+
+.label-finance {
+  border-color: cornflowerblue;
+}
+
+.label-finance .label {
+  background-color: cornflowerblue;
+}
