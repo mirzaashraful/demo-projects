@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn these 5 PROPERTIES to level up your CSS skills</title>
+    <link rel="stylesheet" href="./css/img-border.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <style>
+      :root {
+          --pos: 50%;
+      }
+      .compare {
+        display: grid;
+        container-type: size;
+        block-size: 75svh;
+        aspect-ratio: 1;
+    
+        > * {
+          grid-area: 1 / 1;
+        }
+    
+        > section {
+          display: grid;
+          place-content: center;
+        }
+    
+        .before {
+          mask: linear-gradient(to right, #000 0, var(--pos, 50%), #0000 0);
+        }
+    
+        .after {
+          mask: linear-gradient(to right, #0000 0, var(--pos, 50%), #000 0);
+        }
+    
+        > input[type="range"] {
+          width: 100%;
+          z-index: 1;
+          appearance: none;
+          background: transparent;
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+    
+          &::-webkit-slider-thumb {
+            appearance: none;
+            inline-size: 4px;
+            block-size: 75dvh;
+            background-color: CanvasText;
+          }
+    
+          &::-moz-range-thumb {
+            appearance: none;
+            inline-size: 4px;
+            block-size: 75dvh;
+            background-color: CanvasText;
+          }
+        }
+      }
+    
+      img {
+        max-block-size: 90cqb;
+        max-inline-size: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+        <h1>A Comparison Slider</h1>
+        <a href="https://nerdy.dev/notebook/comparison-slider.html">
+          Artical
+        </a>
+      
+        <div class="compare">
+          <section class="before">
+            <img src="https://assets.codepen.io/2585/Runner.svg" alt="">
+          </section>
+          <section class="after">
+            <img src="https://assets.codepen.io/2585/Roboto.svg" alt="">
+          </section>
+          <input type="range" id="range" step="0.1">
+        </div>
+      </section>
+
+      <script>
+        const range = document.getElementById("range");
+        range.oninput = () => {
+          // Set the CSS variable (--pos) specifically for the body element
+            document.body.style.setProperty("--pos", range.value + "%");
+          // Set the CSS variable (--pos) specifically for the html element
+           // document.documentElement.style.setProperty("--pos", range.value + "%");
+        };     
+        </script>
+  </body>
+</html>
