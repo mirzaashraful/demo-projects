@@ -1,0 +1,81 @@
+/* CSS ONLY CAROUSEL? LEARN ::SCROLL-BUTTON() IN 9 MINUTES */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.carousel {
+    width: 100%;
+    overflow-x: auto;
+    margin: 3em auto;
+    display: flex;
+    gap: 1em;
+    scroll-behavior: smooth;
+    /* position: relative; */
+    anchor-name: --carousel; /* Define an anchor for the carousel postion */
+    scroll-snap-type: x mandatory;  /* Enable scroll snapping */
+    scroll-marker-group: after; /* Define a scroll marker group for the after */
+}
+.carousel::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.card::scroll-marker {
+  width: 16px;
+  height: 16px;
+  background-color: orange;
+
+  border-radius: 50%;
+  content: "";
+}
+.card::scroll-marker:target-current {
+  background-color: black;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+.carousel::scroll-button(right), .carousel::scroll-button(left)  {
+    content: '>';
+    border: none;
+    background-color: red;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: white;
+    padding-bottom: .1em;
+    cursor: pointer;
+    /* position: absolute;
+    top: 50%;
+    right: 0; */
+    position: fixed;
+    position-anchor: --carousel;
+    position-area: right center;
+}
+.carousel::scroll-button(left) {
+    content: '<';
+    position-area: left center;
+}
+
+.carousel::scroll-button(right):disabled, .carousel::scroll-button(left):disabled {
+  opacity: 0.5;  
+  cursor: auto;
+}
+.card {
+    scroll-snap-align: start; /* Align cards to the start when snapping */
+    flex: 0 0 20em;
+    /* height: 12em; */
+    aspect-ratio: 5/3;
+    background-color: antiquewhite;
+    padding: 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .card {
+        flex: 0 0 100%;
+    }
+}
